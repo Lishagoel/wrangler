@@ -1,3 +1,49 @@
+# Wrangler Data Pipeline
+
+Wrangler is a modular and extensible data pipeline framework built with Python. It provides reusable components (called *nodes*) to load, transform, and process data efficiently. This project follows a pluggable architecture, allowing for customization and scalability.
+
+---
+
+## My Contributions
+
+This fork of the Wrangler project includes the following contributions:
+
+- Successfully set up and ran the Wrangler pipeline locally.
+- Contributed to node design and functionality.
+- Ran test pipelines using `main.py` with various data sources.
+- Captured logs and commit history as proof of hands-on work.
+
+---
+
+## Screenshots
+
+### 1. Successful Pipeline Execution  
+![Success](images/success.png)
+
+### 2. ByteSize and Testing  
+![ByteSize](images/ByteSize.png)
+![Testing](images/ByteSizeTest.png)
+
+### 3. TimeDuration and Testing
+![TimeDuration](images/TimeDuration.png)
+![Testing](images/TimeDurationTest.png)
+
+### 4. AggregateStats and Testing  
+![AggregateStats](images/AggregateStats.png)
+![Testing](images/AggregateStatsTest.png)
+
+### 5. RecipeParser
+![Parser](images/RecipeParserAggregateStatsTest.png)
+
+---
+
+## Acknowledgements
+
+Original Wrangler repo maintained by the Data Engineering team.
+Forked and modified by Lisha Goel.
+
+---
+
 # Data Prep
 
 ![cm-available](https://cdap-users.herokuapp.com/assets/cm-available.svg)

@@ -16,6 +16,12 @@
 
 package io.cdap.directives.column;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.unix4j.Unix4j;
+import org.unix4j.builder.Unix4jCommandBuilder;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -34,11 +40,6 @@ import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-import org.unix4j.Unix4j;
-import org.unix4j.builder.Unix4jCommandBuilder;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Applies a sed expression on the column names.
@@ -109,5 +110,11 @@ public class ColumnsReplace implements Directive, Lineage {
   private String getSedReplacedColumnName(String colName) {
     Unix4jCommandBuilder builder = Unix4j.echo(colName).sed(sed);
     return builder.toStringResult();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

@@ -170,4 +170,10 @@ public class Flatten implements Directive, Lineage {
       .all(Many.columns(columns), Many.columns(columns))
       .build();
   }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
+  }
 }

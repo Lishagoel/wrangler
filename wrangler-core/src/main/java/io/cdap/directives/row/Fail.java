@@ -16,7 +16,10 @@
 
 package io.cdap.directives.row;
 
+import java.util.List;
+
 import com.google.common.collect.ImmutableList;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -37,9 +40,6 @@ import io.cdap.wrangler.expression.EL;
 import io.cdap.wrangler.expression.ELContext;
 import io.cdap.wrangler.expression.ELException;
 import io.cdap.wrangler.expression.ELResult;
-
-import java.util.List;
-
 import static io.cdap.wrangler.metrics.JexlCategoryMetricUtils.getJexlCategoryMetric;
 
 /**
@@ -115,5 +115,11 @@ public class Fail implements Directive, Lineage {
   public List<EntityCountMetric> getCountMetrics() {
     EntityCountMetric jexlCategoryMetric = getJexlCategoryMetric(el.getScriptParsedText());
     return (jexlCategoryMetric == null) ? null : ImmutableList.of(jexlCategoryMetric);
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

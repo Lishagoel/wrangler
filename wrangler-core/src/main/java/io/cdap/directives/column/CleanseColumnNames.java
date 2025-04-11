@@ -16,6 +16,9 @@
 
 package io.cdap.directives.column;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -32,9 +35,6 @@ import io.cdap.wrangler.api.lineage.Lineage;
 import io.cdap.wrangler.api.lineage.Many;
 import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * A directive for cleanses columns names.
@@ -112,5 +112,11 @@ public final class CleanseColumnNames implements Directive, Lineage {
     // Filtering unwanted characters
     columnName = columnName.replaceAll("[^a-zA-Z0-9_]", "_");
     return columnName;
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

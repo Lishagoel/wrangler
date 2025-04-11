@@ -174,4 +174,10 @@ public class ParseProtobuf implements Directive, Lineage {
       .all(Many.columns(column))
       .build();
   }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
+  }
 }

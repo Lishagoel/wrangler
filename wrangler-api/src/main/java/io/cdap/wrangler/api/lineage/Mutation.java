@@ -45,9 +45,6 @@ public final class Mutation implements Serializable {
   private final String readable;
   private final List<Relation> relations;
 
-  private Mutation() {
-    this("", Collections.emptyList());
-  }
 
   private Mutation(String readable, List<Relation> relations) {
     this.readable = readable;

@@ -16,7 +16,25 @@
 
 package io.cdap.directives.parser;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.hssf.usermodel.HSSFDateUtil;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import com.google.common.io.Closeables;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -38,23 +56,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.hssf.usermodel.HSSFDateUtil;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.ByteArrayInputStream;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * A step to parse Excel files.
@@ -65,7 +66,6 @@ import java.util.TreeMap;
 @Description("Parses column as Excel file.")
 public class ParseExcel implements Directive, Lineage {
   public static final String NAME = "parse-as-excel";
-  private static final Logger LOG = LoggerFactory.getLogger(ParseExcel.class);
   private String column;
   private String sheet;
   private boolean firstRowAsHeader = false;
@@ -211,7 +211,7 @@ public class ParseExcel implements Directive, Lineage {
           }
         }
       }
-    } catch (Exception e) {
+    } catch (DirectiveExecutionException | IOException | NumberFormatException e) {
       throw new ErrorRowException(NAME, e.getMessage(), 1);
     } finally {
       if (input != null) {
@@ -255,5 +255,11 @@ public class ParseExcel implements Directive, Lineage {
       num = (num  / 26) - 1;
     }
     return sb.reverse().toString();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

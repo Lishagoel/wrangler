@@ -16,6 +16,10 @@
 
 package io.cdap.directives.transformation;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -31,10 +35,6 @@ import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.List;
 
 /**
  * A Executor to decodes a column with url encoding.
@@ -100,5 +100,11 @@ public class UrlDecode implements Directive, Lineage {
       .readable("Decoded column '%s' as a url", column)
       .relation(column, column)
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

@@ -16,6 +16,11 @@
 
 package io.cdap.directives.column;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -33,10 +38,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-import org.apache.commons.lang3.StringEscapeUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A directive for merging two columns and creates a third column.
@@ -107,5 +108,11 @@ public class Merge implements Directive, Lineage {
       .readable("Merged column '%s' and '%s' using delimiter '%s' into column '%s'", col1, col2, delimiter, dest)
       .relation(Many.columns(col1, col2), Many.of(col1, col2, dest))
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

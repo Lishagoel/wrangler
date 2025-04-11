@@ -18,6 +18,7 @@ package io.cdap.wrangler.api.parser;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
 import io.cdap.wrangler.api.annotations.PublicEvolving;
 
 /**
@@ -47,7 +48,7 @@ public class Bool implements Token {
   /**
    * The {@code Boolean} object that represents the value held by the token.
    */
-  private Boolean value;
+  private final Boolean value;
 
   /**
    * Allocates a {@code Boolean} object representing the

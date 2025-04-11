@@ -15,11 +15,10 @@
  */
 package io.cdap.wrangler.api;
 
-import io.cdap.cdap.api.data.schema.Schema;
-
 import java.io.Serializable;
 import java.util.List;
 
+import io.cdap.cdap.api.data.schema.Schema;
 /**
  * Response after executing directives remotely
  * Please make sure all fields are registered with {@link io.cdap.wrangler.utils.KryoSerializer}
@@ -30,7 +29,8 @@ public class RemoteDirectiveResponse implements Serializable {
 
     /**
      * Only used by {@link io.cdap.wrangler.utils.KryoSerializer}
-    **/
+     **/
+    @SuppressWarnings("unused")
     private RemoteDirectiveResponse() {
         this(null, null);
     }

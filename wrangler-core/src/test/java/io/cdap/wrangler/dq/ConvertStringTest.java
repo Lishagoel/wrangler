@@ -26,6 +26,14 @@ import org.junit.Test;
 public class ConvertStringTest {
   private static final String expected = "abc"; 
 
+    public static String getExpecteded() {
+        return getExpecteded();
+    }
+
+    public static String getExpected() {
+        return expected;
+    }
+
   @Test
   public void testRemoveTrailingAndLeading() {
 
@@ -89,7 +97,7 @@ public class ConvertStringTest {
   public void testRemoveTrailingAndLeadingWhitespaces() {
     ConvertString convertString = new ConvertString();
     String inputData = " " + expected; 
-    for (String removechar : convertString.WHITESPACE_CHARS) {
+    for (String removechar : ConvertString.WHITESPACE_CHARS) {
       inputData = inputData + removechar;
     }
     Assert.assertEquals(expected, convertString.removeTrailingAndLeadingWhitespaces(inputData));

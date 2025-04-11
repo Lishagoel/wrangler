@@ -16,6 +16,8 @@
 
 package io.cdap.directives.lookup;
 
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -34,8 +36,6 @@ import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
 import io.cdap.wrangler.executor.ICDCatalog;
-
-import java.util.List;
 
 /**
  * A directive that looks up ICD Code from the catalog.
@@ -119,5 +119,11 @@ public class CatalogLookup implements Directive, Lineage {
       .readable("Looked up catalog using value in column '%s' and wrote it to column '%s'", column, generatedColumn)
       .relation(column, Many.of(column, generatedColumn))
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

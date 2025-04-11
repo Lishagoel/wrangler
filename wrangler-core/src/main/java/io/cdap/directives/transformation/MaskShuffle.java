@@ -16,6 +16,10 @@
 
 package io.cdap.directives.transformation;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -31,10 +35,6 @@ import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 /**
  * A Wrangler plugin that applies shuffling masking on the column.
@@ -125,6 +125,12 @@ public class MaskShuffle implements Directive, Lineage {
   private char randomChar(Random r, String cs, boolean uppercase) {
     char c = cs.charAt(r.nextInt(cs.length()));
     return uppercase ? Character.toUpperCase(c) : c;
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }
 

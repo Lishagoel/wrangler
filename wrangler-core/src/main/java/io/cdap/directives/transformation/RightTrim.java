@@ -16,6 +16,8 @@
 
 package io.cdap.directives.transformation;
 
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -31,8 +33,6 @@ import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.List;
 
 
 /**
@@ -87,5 +87,11 @@ public class RightTrim implements Directive, Lineage {
       .readable("Removed spaces on the right in values of column '%s'", column)
       .relation(column, column)
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

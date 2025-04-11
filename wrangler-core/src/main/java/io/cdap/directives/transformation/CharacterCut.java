@@ -16,6 +16,10 @@
 
 package io.cdap.directives.transformation;
 
+import java.util.List;
+
+import org.unix4j.Unix4j;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -27,15 +31,11 @@ import io.cdap.wrangler.api.ExecutorContext;
 import io.cdap.wrangler.api.Row;
 import io.cdap.wrangler.api.annotations.Categories;
 import io.cdap.wrangler.api.lineage.Lineage;
-import io.cdap.wrangler.api.lineage.Many;
 import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-import org.unix4j.Unix4j;
-
-import java.util.List;
 
 /**
  * A directive implements unix cut directive.
@@ -105,5 +105,11 @@ public class CharacterCut implements Directive, Lineage {
                               source, destination, range))
       .conditional(source, destination)
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

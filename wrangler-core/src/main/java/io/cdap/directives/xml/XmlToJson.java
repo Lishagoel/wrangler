@@ -16,9 +16,16 @@
 
 package io.cdap.directives.xml;
 
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+import org.json.JSONException;
+import org.json.XML;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -38,11 +45,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Numeric;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-import org.apache.commons.lang.StringUtils;
-import org.json.JSONException;
-import org.json.XML;
-
-import java.util.List;
 
 /**
  * A XML to Json Parser Stage.
@@ -126,5 +128,11 @@ public class XmlToJson implements Directive, Lineage {
       .readable("Converted xml in column '%s' to json", col)
       .all(Many.of(col))
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

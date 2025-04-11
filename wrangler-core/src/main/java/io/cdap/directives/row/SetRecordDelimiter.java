@@ -16,6 +16,9 @@
 
 package io.cdap.directives.row;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -35,9 +38,7 @@ import io.cdap.wrangler.api.parser.Numeric;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.ArrayList;
-import java.util.List;
+import io.cdap.wrangler.api.parser.UsageDefinition;
 
 /**
  * A directive for parsing a string into record using the record delimiter.
@@ -111,5 +112,11 @@ public class SetRecordDelimiter implements Directive, Lineage {
       .readable("Split value in column '%s' into multiple records using delimiter '%s'", column, delimiter)
       .relation(column, column)
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

@@ -16,6 +16,10 @@
 
 package io.cdap.directives.lookup;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -36,10 +40,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 /**
  * An directive that performs a lookup into a Table Dataset and adds the row values into the record.
@@ -131,5 +131,11 @@ public class TableLookup implements Directive, Lineage {
       .readable("Looking up row in table '%s' based on column '%s'", table, column)
       .all(Many.of(column))
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

@@ -16,8 +16,21 @@
 
 package io.cdap.directives.validation;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -38,17 +51,6 @@ import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
 import io.cdap.wrangler.utils.Manifest;
 import io.cdap.wrangler.utils.Manifest.Standard;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 
 /**
@@ -112,9 +114,7 @@ public class ValidateStandard implements Directive {
     builder.define(COLUMN, TokenType.COLUMN_NAME);
     builder.define(
       STANDARD_SPEC,
-      TokenType.IDENTIFIER,
-      String.format(
-        "[one of: %s]", String.join(", ", standardsManifest.getStandards().keySet())));
+      TokenType.IDENTIFIER);
 
     return builder.build();
   }
@@ -205,5 +205,11 @@ public class ValidateStandard implements Directive {
   @Override
   public void destroy() {
     // no-op
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

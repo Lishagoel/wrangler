@@ -16,6 +16,13 @@
 
 package io.cdap.directives.datamodel;
 
+import java.math.RoundingMode;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.avro.Schema;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -36,12 +43,6 @@ import io.cdap.wrangler.api.parser.UsageDefinition;
 import io.cdap.wrangler.datamodel.HTTPSchemaLoader;
 import io.cdap.wrangler.utils.AvroSchemaGlossary;
 import io.cdap.wrangler.utils.ColumnConverter;
-import org.apache.avro.Schema;
-
-import java.math.RoundingMode;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * A directive for mapping a column to a field within a data model. Mapping entails
@@ -164,5 +165,11 @@ public class DataModelMapColumn implements Directive, Lineage {
       .readable("Mapped column '%s' to column name '%s' and type '%s'", column, targetFieldName, targetFieldTypeName)
       .relation(column, targetFieldName)
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

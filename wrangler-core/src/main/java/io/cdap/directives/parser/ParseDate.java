@@ -16,8 +16,14 @@
 
 package io.cdap.directives.parser;
 
+import java.time.ZonedDateTime;
+import java.util.Date;
+import java.util.List;
+import java.util.TimeZone;
+
 import com.joestelmach.natty.DateGroup;
 import com.joestelmach.natty.Parser;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -37,11 +43,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.time.ZonedDateTime;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
 
 /**
  * A Executor to parse date.
@@ -118,5 +119,11 @@ public class ParseDate implements Directive, Lineage {
       }
     }
     return rows;
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

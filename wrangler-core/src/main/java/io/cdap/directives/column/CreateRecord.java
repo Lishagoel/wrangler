@@ -16,6 +16,10 @@
 
 package io.cdap.directives.column;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -32,10 +36,6 @@ import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.ColumnNameList;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * A directive that creates a record from columns
@@ -97,8 +97,14 @@ public class CreateRecord implements Directive, Lineage {
   @Override
   public Mutation lineage() {
     return Mutation.builder()
-      .readable("Created column based on values in columns '%s''", Arrays.asList(columns))
+      .readable("Created column based on values in columns '%s''", Arrays.asList((Object) columns))
       .relation(Many.columns(columns), targetColumn)
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

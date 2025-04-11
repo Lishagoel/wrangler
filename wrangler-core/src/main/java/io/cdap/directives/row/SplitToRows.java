@@ -16,6 +16,9 @@
 
 package io.cdap.directives.row;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -33,9 +36,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A directive for splitting the string into multiple {@link Row}s.
@@ -108,6 +108,12 @@ public class SplitToRows implements Directive, Lineage {
       .readable("Split column '%s' into multiple rows using expressions '%s'", column, regex)
       .relation(Many.columns(column), Many.columns(column))
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }
 

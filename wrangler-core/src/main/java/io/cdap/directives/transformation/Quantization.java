@@ -16,9 +16,13 @@
 
 package io.cdap.directives.transformation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.common.collect.Range;
 import com.google.common.collect.RangeMap;
 import com.google.common.collect.TreeRangeMap;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -37,9 +41,6 @@ import io.cdap.wrangler.api.parser.Numeric;
 import io.cdap.wrangler.api.parser.Ranges;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A Wrangler step for quantizing a column.
@@ -134,5 +135,11 @@ public class Quantization implements Directive, Lineage {
       .readable("Quanitized column '%s' into column '%s'", col1, col2)
       .conditional(col1, col2)
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

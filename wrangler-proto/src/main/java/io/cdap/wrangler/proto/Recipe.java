@@ -19,6 +19,8 @@ package io.cdap.wrangler.proto;
 import java.util.List;
 import java.util.Objects;
 
+import io.cdap.wrangler.api.Directive;
+
 /**
  * Defines the recipe object that is part of the {@link Request}
  */
@@ -90,5 +92,10 @@ public class Recipe {
   @Override
   public int hashCode() {
     return Objects.hash(directives, save, name);
+  }
+
+  public List<Directive> parse() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'parse'");
   }
 }

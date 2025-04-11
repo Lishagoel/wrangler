@@ -16,12 +16,22 @@
 
 package io.cdap.directives.parser;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.avro.Schema;
+
 import com.github.rholder.retry.RetryException;
 import com.github.rholder.retry.Retryer;
 import com.github.rholder.retry.RetryerBuilder;
 import com.github.rholder.retry.StopStrategies;
 import com.github.rholder.retry.WaitStrategies;
 import com.google.common.base.Charsets;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -49,14 +59,6 @@ import io.cdap.wrangler.codec.BinaryAvroDecoder;
 import io.cdap.wrangler.codec.Decoder;
 import io.cdap.wrangler.codec.DecoderException;
 import io.cdap.wrangler.codec.JsonAvroDecoder;
-import org.apache.avro.Schema;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
 /**
  * A step to parse AVRO json or binary format.
@@ -186,5 +188,11 @@ public class ParseAvro implements Directive, Lineage {
       .readable("Parsed column '%s' as a Avro record", column)
       .all(Many.columns(column))
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

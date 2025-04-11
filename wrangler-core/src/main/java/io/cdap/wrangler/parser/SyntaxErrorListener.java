@@ -34,14 +34,13 @@ import java.util.List;
  */
 public final class SyntaxErrorListener extends BaseErrorListener {
   public int lastError = -1;
-  private List<SyntaxError> errors = new ArrayList<>();
+  private final List<SyntaxError> errors = new ArrayList<>();
 
   @Override
   public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine,
                           String msg, RecognitionException e) {
 
     Parser parser = (Parser) recognizer;
-    String name = parser.getSourceName();
     TokenStream tokens = parser.getInputStream();
 
     Token offSymbol = (Token) offendingSymbol;
@@ -82,7 +81,7 @@ public final class SyntaxErrorListener extends BaseErrorListener {
   }
 
   public boolean hasErrors() {
-    return errors.size() > 0;
+    return !errors.isEmpty();
   }
 
   public Iterator<SyntaxError> iterator() {

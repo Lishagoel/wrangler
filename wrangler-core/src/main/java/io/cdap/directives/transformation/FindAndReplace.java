@@ -16,6 +16,12 @@
 
 package io.cdap.directives.transformation;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.unix4j.Unix4j;
+import org.unix4j.builder.Unix4jCommandBuilder;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -32,11 +38,6 @@ import io.cdap.wrangler.api.parser.ColumnNameList;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-import org.unix4j.Unix4j;
-import org.unix4j.builder.Unix4jCommandBuilder;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A directive for 'find-and-replace' transformations on the column.
@@ -103,6 +104,12 @@ public class FindAndReplace implements Directive, Lineage {
       .readable("Found and replaced '%s' using expression '%s'", columns, pattern);
     columns.forEach(column -> builder.relation(column, column));
     return builder.build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }
 

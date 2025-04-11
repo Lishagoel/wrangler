@@ -16,6 +16,8 @@
 
 package io.cdap.directives.column;
 
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -32,8 +34,6 @@ import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.ColumnNameList;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.List;
 
 /**
  * This class <code>Drop</code> implements a directive that will drop
@@ -87,5 +87,11 @@ public class Drop implements Directive, Lineage {
       .readable("Dropped columns %s", columns)
       .drop(Many.of(columns))
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

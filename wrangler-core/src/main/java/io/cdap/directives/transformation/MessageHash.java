@@ -16,8 +16,15 @@
 
 package io.cdap.directives.transformation;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
+import java.util.Set;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -37,12 +44,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.List;
-import java.util.Set;
 
 /**
  * A Executor to generate a message digest or hash of a column value. .
@@ -204,5 +205,11 @@ public class MessageHash implements Directive, Lineage {
     return ImmutableList.of(
       new EntityCountMetric(HASH_ALGORITHM_METRIC_NAME, HASH_ALGORITHM_ENTITY_NAME,
                                digest.getAlgorithm(), HASH_ALGORITHM_COUNT));
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

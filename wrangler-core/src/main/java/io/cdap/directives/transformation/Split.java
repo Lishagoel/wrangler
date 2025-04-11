@@ -16,7 +16,11 @@
 
 package io.cdap.directives.transformation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.common.base.Strings;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -31,9 +35,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A directive for splitting a col into two additional columns based on a delimiter.
@@ -104,5 +105,11 @@ public class Split implements Directive {
       results.add(row);
     }
     return results;
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

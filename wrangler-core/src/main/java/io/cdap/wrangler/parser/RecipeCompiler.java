@@ -16,10 +16,10 @@
 
 package io.cdap.wrangler.parser;
 
-import io.cdap.wrangler.api.CompileException;
-import io.cdap.wrangler.api.CompileStatus;
-import io.cdap.wrangler.api.Compiler;
-import io.cdap.wrangler.api.RecipeSymbol;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Path;
+
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -27,8 +27,10 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.tool.GrammarParserInterpreter;
 import org.apache.twill.filesystem.Location;
 
-import java.io.InputStream;
-import java.nio.file.Path;
+import io.cdap.wrangler.api.CompileException;
+import io.cdap.wrangler.api.CompileStatus;
+import io.cdap.wrangler.api.Compiler;
+import io.cdap.wrangler.api.RecipeSymbol;
 
 /**
  * Class description here.
@@ -53,7 +55,7 @@ public final class RecipeCompiler implements Compiler {
   public CompileStatus compile(Path path) throws CompileException {
     try {
       return compile(CharStreams.fromPath(path));
-    } catch (Exception e) {
+    } catch (CompileException | IOException e) {
       throw new CompileException(e.getMessage(), e);
     }
   }

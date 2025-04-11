@@ -16,6 +16,8 @@
 
 package io.cdap.directives.transformation;
 
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -33,8 +35,6 @@ import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
 import io.cdap.wrangler.utils.TypeConvertor;
-
-import java.util.List;
 
 /**
  * A directive that applies substitution masking on the column.
@@ -144,6 +144,12 @@ public class MaskNumber implements Directive, Lineage {
       }
     }
     return masked.toString();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }
 

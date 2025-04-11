@@ -187,4 +187,10 @@ public final class SetType implements Directive, Lineage {
       }
       return new Pair<Integer, Integer>(precision, scale);
     }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
+  }
 }

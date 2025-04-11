@@ -361,7 +361,7 @@ public class Wrangler extends Transform<StructuredRecord, StructuredRecord> impl
     store = new DefaultTransientStore();
     RecipeParser recipe = getRecipeParser(context);
 
-    ExecutorContext ctx = new WranglerPipelineContext(ExecutorContext.Environment.TRANSFORM, context, store);
+    ExecutorContext ctx = (ExecutorContext) new WranglerPipelineContext(ExecutorContext.Environment.TRANSFORM, context, store);
 
     // Based on the configuration create output schema.
     try {

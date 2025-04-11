@@ -16,6 +16,11 @@
 
 package io.cdap.directives.transformation;
 
+import java.util.List;
+
+import org.simmetrics.StringDistance;
+import org.simmetrics.metrics.StringDistances;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -33,10 +38,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-import org.simmetrics.StringDistance;
-import org.simmetrics.metrics.StringDistances;
-
-import java.util.List;
 
 /**
  * A directive for implementing the directive for measuring the difference between two sequence of characters.
@@ -182,6 +183,12 @@ public class TextDistanceMeasure implements Directive, Lineage {
       .relation(column1, column1)
       .relation(column2, column2)
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 
 }

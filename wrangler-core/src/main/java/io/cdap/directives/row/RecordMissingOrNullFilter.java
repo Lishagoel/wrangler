@@ -16,6 +16,10 @@
 
 package io.cdap.directives.row;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -31,10 +35,6 @@ import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.ColumnNameList;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Filters records if they don't have all the columns specified or they have null values or combination.
@@ -96,5 +96,11 @@ public class RecordMissingOrNullFilter implements Directive, Lineage {
       .readable("Filtered null or empty records based on check on columns '%s'", cols);
     cols.forEach(column -> builder.relation(column, column));
     return builder.build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

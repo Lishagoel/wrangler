@@ -16,6 +16,9 @@
 
 package io.cdap.directives.column;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -35,9 +38,6 @@ import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.Identifier;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * This class <code>ChangeColCaseNames</code> converts the case of the columns
@@ -112,5 +112,11 @@ public class ChangeColCaseNames implements Directive, Lineage {
         )
         .collect(Collectors.toList())
     );
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

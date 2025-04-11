@@ -16,6 +16,9 @@
 
 package io.cdap.directives.column;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -33,9 +36,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A directive for splitting the columns into multiple columns.
@@ -122,6 +122,12 @@ public class SplitToColumns implements Directive, Lineage {
           String.format("%s_%d", column, 9),
           String.format("%s_%d", column, 10)))
     .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }
 

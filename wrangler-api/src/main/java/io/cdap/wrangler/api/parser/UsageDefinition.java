@@ -105,28 +105,43 @@ public final class UsageDefinition implements Serializable {
       if (token.label() != null) {
         sb.append(token.label());
       } else {
-        if (token.type().equals(TokenType.DIRECTIVE_NAME)) {
-          sb.append(token.name());
-        } else if (token.type().equals(TokenType.COLUMN_NAME)) {
-          sb.append(":").append(token.name());
-        } else if (token.type().equals(TokenType.COLUMN_NAME_LIST)) {
-          sb.append(":").append(token.name()).append(" [,:").append(token.name()).append("  ]*");
-        } else if (token.type().equals(TokenType.BOOLEAN)) {
-          sb.append(token.name()).append(" (true/false)");
-        } else if (token.type().equals(TokenType.TEXT)) {
-          sb.append("'").append(token.name()).append("'");
-        } else if (token.type().equals(TokenType.IDENTIFIER) || token.type().equals(TokenType.NUMERIC)) {
-          sb.append(token.name());
-        } else if (token.type().equals(TokenType.BOOLEAN_LIST) || token.type().equals(TokenType.NUMERIC_LIST)
-          || token.type().equals(TokenType.TEXT_LIST)) {
-          sb.append(token.name()).append("[,").append(token.name()).append(" ...]*");
-        } else if (token.type().equals(TokenType.EXPRESSION)) {
-          sb.append("exp:{<").append(token.name()).append(">}");
-        } else if (token.type().equals(TokenType.PROPERTIES)) {
-          sb.append("prop:{key:value,[key:value]*");
-        } else if (token.type().equals(TokenType.RANGES)) {
-          sb.append("start:end=[bool|text|numeric][,start:end=[bool|text|numeric]*");
-        }
+          switch (token.type()) {
+              case DIRECTIVE_NAME:
+                  sb.append(token.name());
+                  break;
+              case COLUMN_NAME:
+                  sb.append(":").append(token.name());
+                  break;
+              case COLUMN_NAME_LIST:
+                  sb.append(":").append(token.name()).append(" [,:").append(token.name()).append("  ]*");
+                  break;
+              case BOOLEAN:
+                  sb.append(token.name()).append(" (true/false)");
+                  break;
+              case TEXT:
+                  sb.append("'").append(token.name()).append("'");
+                  break;
+              case IDENTIFIER:
+              case NUMERIC:
+                  sb.append(token.name());
+                  break;
+              case BOOLEAN_LIST:
+              case NUMERIC_LIST:
+              case TEXT_LIST:
+                  sb.append(token.name()).append("[,").append(token.name()).append(" ...]*");
+                  break;
+              case EXPRESSION:
+                  sb.append("exp:{<").append(token.name()).append(">}");
+                  break;
+              case PROPERTIES:
+                  sb.append("prop:{key:value,[key:value]*");
+                  break;
+              case RANGES:
+                  sb.append("start:end=[bool|text|numeric][,start:end=[bool|text|numeric]*");
+                  break;
+              default:
+                  break;
+          }
       }
 
       count--;
@@ -196,8 +211,9 @@ public final class UsageDefinition implements Serializable {
      * @param type of the token to be extracted.
      * @param label label that modifies the usage for this field.
      */
-    public void define(String name, TokenType type, String label) {
-      TokenDefinition spec = new TokenDefinition(name, type, label, currentOrdinal, Optional.FALSE);
+    public void define(String name, TokenType type, java.util.Optional<String> label) {
+      String optional = null;
+      TokenDefinition spec = new TokenDefinition(name, type, optional, currentOrdinal, Optional.FALSE);
       currentOrdinal++;
       tokens.add(spec);
     }

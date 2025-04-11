@@ -16,6 +16,8 @@
 
 package io.cdap.directives.parser;
 
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -35,8 +37,6 @@ import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
 import nl.basjes.parse.core.Parser;
 import nl.basjes.parse.httpdlog.ApacheHttpdLoglineParser;
-
-import java.util.List;
 
 /**
  * A Executor for parsing Apache HTTPD and NGINX log files.
@@ -144,6 +144,12 @@ public class ParseLog implements Directive, Lineage {
     public Row get() {
       return row;
     }
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 
 }

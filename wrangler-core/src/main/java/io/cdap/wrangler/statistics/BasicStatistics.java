@@ -40,7 +40,7 @@ public class BasicStatistics implements Statistics {
     ColumnMetric stats = new ColumnMetric();
 
     long startTime = System.currentTimeMillis();
-    Double count = new Double(0);
+    Double count = Double.valueOf(0);
     for (Row row : rows) {
       ++count;
       for (int i = 0; i < row.width(); ++i) {
@@ -63,7 +63,6 @@ public class BasicStatistics implements Statistics {
             for (String find : finds.keySet()) {
               types.increment(column, find);
             }
-            // TODO: this is a workaround for CDAP-18262, to proper fix we should revisit this computation logic
             if (System.currentTimeMillis() - startTime > TIME_OUT_MILLIS) {
               break;
             }

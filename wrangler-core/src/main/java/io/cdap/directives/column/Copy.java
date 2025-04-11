@@ -16,6 +16,9 @@
 
 package io.cdap.directives.column;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -34,9 +37,6 @@ import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A directive for copying value of one column to another.
@@ -131,5 +131,11 @@ public class Copy implements Directive, Lineage {
       outputFields.add(Schema.Field.of(destination.value(), sourceSchema));
     }
     return Schema.recordOf("outputSchema", outputFields);
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

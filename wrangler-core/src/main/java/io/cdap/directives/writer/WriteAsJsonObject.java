@@ -16,10 +16,13 @@
 
 package io.cdap.directives.writer;
 
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -38,8 +41,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.ColumnNameList;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.List;
 
 /**
  * A directive for writing selected columns as Json Objects.
@@ -114,5 +115,11 @@ public class WriteAsJsonObject implements Directive, Lineage {
     builder.relation(Many.of(columns), column);
     columns.forEach(column -> builder.relation(column, column));
     return builder.build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

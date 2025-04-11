@@ -16,6 +16,12 @@
 
 package io.cdap.directives.currency;
 
+import java.text.NumberFormat;
+import java.util.List;
+import java.util.Locale;
+
+import org.apache.commons.lang3.LocaleUtils;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -34,11 +40,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-import org.apache.commons.lang3.LocaleUtils;
-
-import java.text.NumberFormat;
-import java.util.List;
-import java.util.Locale;
 
 /**
  * A directive for taking difference in Dates.
@@ -108,5 +109,11 @@ public class FormatAsCurrency implements Directive, Lineage {
       .readable("Formatted column '%s' to currency locale '%s' into '%s'", source, destination, locale)
       .conditional(source, destination)
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

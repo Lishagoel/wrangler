@@ -260,4 +260,9 @@ public final class Row implements Serializable {
   public int hashCode() {
     return Objects.hash(columns, values);
   }
+
+  public boolean has(String timeColumn) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'has'");
+  }
 }

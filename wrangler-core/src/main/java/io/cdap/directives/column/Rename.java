@@ -16,6 +16,9 @@
 
 package io.cdap.directives.column;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -33,9 +36,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
 import io.cdap.wrangler.utils.ColumnConverter;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * A directive for renaming columns.
@@ -97,5 +97,11 @@ public final class Rename implements Directive, Lineage {
         )
         .collect(Collectors.toList())
     );
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

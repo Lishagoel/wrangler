@@ -16,6 +16,14 @@
 
 package io.cdap.directives.transformation;
 
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Locale;
+
+import org.apache.commons.codec.binary.Base32;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -32,13 +40,6 @@ import io.cdap.wrangler.api.parser.ColumnName;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-import org.apache.commons.codec.binary.Base32;
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.codec.binary.Hex;
-
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-import java.util.Locale;
 
 /**
  * A directive that encodes a column as base-32, base-64, or hex.
@@ -149,5 +150,11 @@ public class Encode implements Directive, Lineage {
       .readable("Encoded column '%s' using method '%s'", column, method.getType())
       .relation(column, column)
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

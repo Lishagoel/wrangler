@@ -16,6 +16,9 @@
 
 package io.cdap.directives.parser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -37,9 +40,6 @@ import io.cdap.wrangler.api.parser.NumericList;
 import io.cdap.wrangler.api.parser.Text;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A Fixed length Parser Stage for parsing the {@link Row} provided based on configuration.
@@ -147,5 +147,11 @@ public final class FixedLengthParser implements Directive, Lineage {
       .readable("Parsed column '%s' with fixed lengths for columns", col)
       .all(Many.of(col), Many.of(col))
       .build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

@@ -16,6 +16,10 @@
 
 package io.cdap.directives.column;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import io.cdap.cdap.api.annotation.Description;
 import io.cdap.cdap.api.annotation.Name;
 import io.cdap.cdap.api.annotation.Plugin;
@@ -32,10 +36,6 @@ import io.cdap.wrangler.api.lineage.Mutation;
 import io.cdap.wrangler.api.parser.ColumnNameList;
 import io.cdap.wrangler.api.parser.TokenType;
 import io.cdap.wrangler.api.parser.UsageDefinition;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 /**
  * This class <code>Keep</code> implements a directive that
@@ -92,5 +92,11 @@ public class Keep implements Directive, Lineage {
                                   .readable("Removed all columns except '%s'", keep);
     keep.forEach(column -> builder.relation(column, column));
     return builder.build();
+  }
+
+  @Override
+  public Object name() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'name'");
   }
 }

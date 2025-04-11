@@ -1,0 +1,25 @@
+# prompts.txt
+
+Prompt 1:
+"How do I add new token types like BYTE_SIZE and TIME_DURATION in an ANTLR grammar file for a Java project?"
+
+Prompt 2:
+"Help me write a Java class called ByteSize that parses strings like '10KB', '2MB' and converts them into bytes."
+
+Prompt 3:
+"Create a TimeDuration class that accepts inputs like '150ms', '2s', '1.5m' and converts them into nanoseconds, milliseconds, and seconds."
+
+Prompt 4:
+"Give me test cases for ByteSize and TimeDuration to check valid, invalid, decimal, and edge case inputs."
+
+Prompt 5:
+"Help me implement a Wrangler directive named aggregate-stats that aggregates columns of ByteSize and TimeDuration types and outputs results in specified units."
+
+Prompt 6:
+"Suggest improvements to my directive that uses ExecutorContext and transient store for aggregation."
+
+Prompt 7:
+"Write a JUnit test for the aggregate-stats directive that verifies it correctly aggregates size in MB and time in seconds."
+
+Prompt 8:
+"What should be the content and structure of a prompts.txt file for submission in a programming assignment that used AI help?"

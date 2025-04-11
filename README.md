@@ -38,6 +38,9 @@ This fork of the Wrangler project includes the following contributions:
 ### 5. RecipeParser
 ![Parser](images/RecipeParserAggregateStatsTest.png)
 
+### 6. Prompt
+![prompt](images/prompt.png)
+
 ---
 
 ## Acknowledgements

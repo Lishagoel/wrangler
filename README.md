@@ -22,14 +22,17 @@ This fork of the Wrangler project includes the following contributions:
 
 ### 2. ByteSize and Testing  
 ![ByteSize](images/ByteSize.png)
+
 ![Testing](images/ByteSizeTest.png)
 
 ### 3. TimeDuration and Testing
 ![TimeDuration](images/TimeDuration.png)
+
 ![Testing](images/TimeDurationTest.png)
 
 ### 4. AggregateStats and Testing  
 ![AggregateStats](images/AggregateStats.png)
+
 ![Testing](images/AggregateStatsTest.png)
 
 ### 5. RecipeParser
@@ -39,8 +42,8 @@ This fork of the Wrangler project includes the following contributions:
 
 ## Acknowledgements
 
-Original Wrangler repo maintained by the Data Engineering team.
-Forked and modified by Lisha Goel.
+- Original Wrangler repo maintained by the Data Engineering team.
+- Forked and modified by Lisha Goel.
 
 ---
 
